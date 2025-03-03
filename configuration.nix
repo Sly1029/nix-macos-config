@@ -20,19 +20,18 @@
         link = true;
         conflicts_with = [ "libxmlsec1" ];
       }
-
     ];
     caskArgs.appdir = "~/Applications";
     casks = [
+      "arc"
       "aws-vpn-client-semgrep"
       "betterdisplay"
+      "ghostty"
       "font-hack-nerd-font"
       "font-iosevka-nerd-font"
       "font-jetbrains-mono"
-      "ghostty"
       "orbstack"
       "raycast"
-      "unnaturalscrollwheels"
     ];
     taps = [{
       name = "semgrep/infra";
