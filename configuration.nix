@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  
+  nix.enable = false;
   environment = {
     systemPackages = with pkgs; [
       htop
@@ -11,7 +13,6 @@
     pathsToLink = [ "/share/zsh" ];
   };
   fonts.packages = with pkgs; [ fira-code source-code-pro ];
-
   homebrew = {
     enable = true;
     brews = [
@@ -38,15 +39,12 @@
       clone_target = "git@github.com:semgrep/homebrew-infra.git";
     }];
   };
-  services = {
-    # Auto upgrade nix package and the daemon service.
-    nix-daemon.enable = true;
-  };
 
   nix.settings = {
     # Necessary for using flakes on this system.
     experimental-features = "nix-command flakes";
     trusted-substituters = [ "rohitjayaram" ];
+
     substituters =
       [ "https://nix-community.cachix.org" "https://semgrep.cachix.org" ];
     trusted-public-keys = [

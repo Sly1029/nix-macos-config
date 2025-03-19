@@ -58,11 +58,11 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-      enableZshIntegration = true;
-    };
+#    direnv = {
+#      enable = true;
+#      nix-direnv.enable = true;
+#      enableZshIntegration = true;
+#    };
     lsd = {
       enable = true;
       settings = {
@@ -106,7 +106,7 @@
       syntaxHighlighting.enable = true;
 
       sessionVariables = {
-        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$PATH";
+        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:$PATH";
         EDITOR = "nvim";
       };
 
