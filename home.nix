@@ -19,6 +19,7 @@
       [
         awscli2
         btop
+	bun
         cachix
         curl
         docker
@@ -192,7 +193,7 @@
     };
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = false;
     };
     tmux = {
       enable = true;

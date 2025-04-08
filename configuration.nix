@@ -24,7 +24,6 @@
     ];
     caskArgs.appdir = "~/Applications";
     casks = [
-      "arc"
       "aws-vpn-client-semgrep"
       "betterdisplay"
       "ghostty"
@@ -33,6 +32,7 @@
       "font-jetbrains-mono"
       "orbstack"
       "raycast"
+      "zen-browser"
     ];
     taps = [{
       name = "semgrep/infra";
