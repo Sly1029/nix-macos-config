@@ -27,7 +27,7 @@ let name = "Rohit Jayaram";
         }
       ];
       sessionVariables = {
-        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:$PATH";
+        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:$PATH";
         EDITOR = "nvim";
       };
       oh-my-zsh = {

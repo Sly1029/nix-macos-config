@@ -1,7 +1,6 @@
 { pkgs }:
 
 with pkgs; [
-  # Your original packages from Nix/home.nix (minus docker since you use orbstack)
   awscli2
   btop
   bun

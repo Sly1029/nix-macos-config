@@ -7,6 +7,7 @@ _:
   "ghostty"
   "orbstack"
   "raycast"
+  "zed"
   "zen-browser"
 
   # Fonts from your original config
