@@ -28,6 +28,7 @@ with pkgs; [
   protobuf
   spotify
   starship
+  terraform
   time
   tmux
   tree-sitter

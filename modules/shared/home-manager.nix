@@ -56,6 +56,7 @@ let name = "Rohit Jayaram";
         pn = "pnpm";
         px = "pnpx";
         diff = "difft";
+	nixconfig = "z nixos-config && vim .";
       };
       initContent = ''
         [[ -f ~/.aws-config.zsh ]] && source ~/.aws-config.zsh
