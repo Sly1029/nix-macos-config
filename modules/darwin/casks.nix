@@ -5,8 +5,9 @@ _:
   "alt-tab"
   "betterdisplay"
   "ghostty"
-  "orbstack"
+  "graphite-beta"
   "raycast"
+  "steam"
   "zed"
   "zen-browser"
 

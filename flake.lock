@@ -264,7 +264,8 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "withgraphite-tap": "withgraphite-tap"
       }
     },
     "systems": {
@@ -279,6 +280,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "withgraphite-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755531065,
+        "narHash": "sha256-6KQbkXJRjmgHNSULebdX7ejDaco5yXfLbCLlGQVWRwo=",
+        "owner": "withgraphite",
+        "repo": "homebrew-tap",
+        "rev": "6bc301957d3b87c6c23322af76744add3dd50e5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "withgraphite",
+        "repo": "homebrew-tap",
         "type": "github"
       }
     }

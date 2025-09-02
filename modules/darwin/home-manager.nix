@@ -21,6 +21,9 @@ in
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
+    taps = ["withgraphite/tap"];
+    onActivation = { autoUpdate = true; cleanup = "zap"; };
+    global.lockfiles = false;  # sets HOMEBREW_BUNDLE_NO_LOCK to avoid Nix store writes
     # onActivation.cleanup = "uninstall";
 
     # These app IDs are from using the mas CLI app
