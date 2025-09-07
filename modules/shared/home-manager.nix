@@ -14,36 +14,11 @@ let name = "Rohit Jayaram";
       autocd = false;
       cdpath = [ "~/.local/share/src" ];
       history.size = 10000;
-      plugins = [
-        {
-            name = "powerlevel10k";
-            src = pkgs.zsh-powerlevel10k;
-            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
-            name = "powerlevel10k-config";
-            src = lib.cleanSource ./config;
-            file = "p10k.zsh";
-        }
-      ];
       sessionVariables = {
         PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:$PATH";
         EDITOR = "nvim";
       };
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "git"
-          "colored-man-pages"
-          "command-not-found"
-          "docker"
-          "npm"
-          "python"
-          "sudo"
-          "fzf"
-        ];
-        theme = "";
-      };
+      oh-my-zsh.enable = false;
       shellAliases = {
         ll = "lsd -l";
         la = "lsd -la";
@@ -56,7 +31,7 @@ let name = "Rohit Jayaram";
         pn = "pnpm";
         px = "pnpx";
         diff = "difft";
-	nixconfig = "z nixos-config && vim .";
+	nixconfig = "z nixos-config && nvim .";
       };
       initContent = ''
         [[ -f ~/.aws-config.zsh ]] && source ~/.aws-config.zsh
@@ -92,7 +67,6 @@ let name = "Rohit Jayaram";
         alias la='lsd -la'
 
         eval "$(zoxide init zsh)"
-        eval "$(starship init zsh)"
 
         if [[ -z "''${SEMGREP_NIX_BUILD-}" ]] && command -v opam >/dev/null 2>&1; then
           eval $(opam env)
@@ -116,7 +90,7 @@ let name = "Rohit Jayaram";
       extraConfig = {
         init.defaultBranch = "main";
         core = {
-          editor = "vim";
+          editor = "nvim";
           autocrlf = "input";
         };
         # commit.gpgsign = true; # Disabled until GPG key is set up
@@ -415,6 +389,7 @@ let name = "Rohit Jayaram";
     # Add starship configuration
     starship = {
       enable = true;
+      enableZshIntegration = true;
       settings = {
         add_newline = false;
         character = {

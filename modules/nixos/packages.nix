@@ -1,8 +1,8 @@
 { pkgs }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
-shared-packages ++ [
+let core = import ../shared/packages-core.nix { inherit pkgs; }; in
+core ++ [
 
   # Security and authentication
   yubikey-agent
@@ -31,7 +31,6 @@ shared-packages ++ [
   rofi
   rofi-calc
   postgresql
-  libtool # for Emacs vterm
 
   # Screenshot and recording tools
   flameshot
@@ -42,7 +41,7 @@ shared-packages ++ [
   tree
   unixtools.ifconfig
   unixtools.netstat
-  xclip # For the org-download package in Emacs
+  # xclip
   xorg.xwininfo # Provides a cursor to click and learn about windows
   xorg.xrandr
 
@@ -63,5 +62,4 @@ shared-packages ++ [
   zathura
 
   # Music and entertainment
-  spotify
 ]

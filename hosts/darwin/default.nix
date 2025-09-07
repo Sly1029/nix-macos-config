@@ -38,16 +38,11 @@ let user = "rohit"; in
   # Turn off NIX_PATH warnings now that we're using flakes
 
   # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs; [
-    # agenix.packages."${pkgs.system}".default
-    htop
-    pkg-config
-    neovim
-    ripgrep
-  ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
+  # Keep user packages in Home Manager; avoid duplication here
+  environment.systemPackages = [ ];
   
-  # Configure fonts
-  fonts.packages = with pkgs; [ fira-code source-code-pro ];
+  # Configure fonts (managed via Homebrew casks; keep Nix empty to avoid duplication)
+  fonts.packages = [ ];
   
   # Add brew shell path
   environment.pathsToLink = [ "/share/zsh" ];

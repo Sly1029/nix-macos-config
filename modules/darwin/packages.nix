@@ -1,7 +1,15 @@
 { pkgs }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
-shared-packages ++ [
+let
+  core = import ../shared/packages-core.nix { inherit pkgs; };
+in
+core ++ [
+  # Darwin specific
   dockutil
+  unnaturalscrollwheels
+  cyberduck
+  discord
+  spotify
+  ollama
 ]
