@@ -3,6 +3,7 @@ _:
 [
   # Your original casks from Nix/configuration.nix
   "alt-tab"
+  "aerospace"
   "betterdisplay"
   "ghostty"
   "graphite-beta"

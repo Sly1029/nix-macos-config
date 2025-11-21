@@ -15,7 +15,7 @@ let name = "Rohit Jayaram";
       cdpath = [ "~/.local/share/src" ];
       history.size = 10000;
       sessionVariables = {
-        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:$PATH";
+        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:/Users/rohit/.local/share/uv/tools/semgrep/lib/python3.13/site-packages/semgrep/bin/:$PATH";
         EDITOR = "nvim";
       };
       oh-my-zsh.enable = false;
@@ -34,6 +34,9 @@ let name = "Rohit Jayaram";
 	nixconfig = "z nixos-config && nvim .";
       };
       initContent = ''
+        # include .profile if it exists
+      	[[ -f ~/.profile ]] && . ~/.profile
+
         [[ -f ~/.aws-config.zsh ]] && source ~/.aws-config.zsh
 
         bindkey -v
@@ -76,6 +79,7 @@ let name = "Rohit Jayaram";
         if [ "$PWD" = "/" ]; then
           cd ~
         fi
+	source ~/.custom.zsh
       '';
     };
 
