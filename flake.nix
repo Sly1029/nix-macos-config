@@ -27,6 +27,10 @@
       url = "github:withgraphite/homebrew-tap";
       flake = false;
     };
+    nikitabobko-tap = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +40,7 @@
     #   flake = false;
     # };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, withgraphite-tap, home-manager, nixpkgs, disko, agenix } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, withgraphite-tap, nikitabobko-tap, home-manager, nixpkgs, disko, agenix } @inputs:
     let
       user = "rohit";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -97,7 +101,8 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
-                  "withgraphite/tap" = withgraphite-tap;
+                  "withgraphite/homebrew-tap" = withgraphite-tap;
+                  "nikitabobko/homebrew-tap" = nikitabobko-tap;
                 };
                 mutableTaps = true;
                 autoMigrate = true;

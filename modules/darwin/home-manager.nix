@@ -22,7 +22,6 @@ programs.zsh.enable = true;
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
-    taps = ["withgraphite/tap" "nikitabobko/tap"];
     onActivation = { autoUpdate = true; cleanup = "zap"; };
     global.lockfiles = false;  # sets HOMEBREW_BUNDLE_NO_LOCK to avoid Nix store writes
   };

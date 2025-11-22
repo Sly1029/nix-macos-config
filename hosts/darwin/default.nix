@@ -39,11 +39,7 @@ let user = "rohit"; in
 
   # Load configuration that is shared across systems
   # Keep user packages in Home Manager; avoid duplication here
-  environment.systemPackages = [ ];
-  
-  # Configure fonts (managed via Homebrew casks; keep Nix empty to avoid duplication)
-  fonts.packages = [ ];
-  
+
   # Add brew shell path
   environment.pathsToLink = [ "/share/zsh" ];
   
