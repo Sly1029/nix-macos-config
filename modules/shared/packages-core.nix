@@ -7,6 +7,7 @@ with pkgs; [
   bun
   cachix
   curl
+  delta
   direnv
   fd
   ffmpeg
@@ -17,7 +18,6 @@ with pkgs; [
   jq
   kubectl
   kustomize
-  neovim
   nixfmt
   pkg-config
   pcre
@@ -37,6 +37,9 @@ with pkgs; [
 
   # Language servers / dev extras
   nodePackages.typescript-language-server
+  nil
+  pyright
+  lua-language-server
 
   # Search
   ripgrep
