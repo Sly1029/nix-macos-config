@@ -19,7 +19,10 @@ let name = "Rohit Jayaram";
         PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:/Users/rohit/.local/share/uv/tools/semgrep/lib/python3.13/site-packages/semgrep/bin/:$PATH";
         EDITOR = "nvim";
       };
-      oh-my-zsh.enable = false;
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" ];
+      };
       shellAliases = {
         ll = "lsd -l";
         la = "lsd -la";
@@ -80,7 +83,13 @@ let name = "Rohit Jayaram";
         if [ "$PWD" = "/" ]; then
           cd ~
         fi
-	source ~/.custom.zsh
+        source ~/.custom.zsh
+
+        # Re-bind ctrl+r for fzf history after vi mode
+        if command -v fzf &> /dev/null; then
+          source <(fzf --zsh)
+          bindkey '^R' fzf-history-widget
+        fi
       '';
     };
 
@@ -317,7 +326,7 @@ let name = "Rohit Jayaram";
     # Add fzf configuration
     fzf = {
       enable = true;
-      enableZshIntegration = false;
+      enableZshIntegration = true;
     };
   };
 }
