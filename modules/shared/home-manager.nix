@@ -18,6 +18,7 @@ let name = "Rohit Jayaram";
       sessionVariables = {
         PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:/Users/rohit/.local/share/uv/tools/semgrep/lib/python3.13/site-packages/semgrep/bin/:$PATH";
         EDITOR = "nvim";
+        CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
       };
       oh-my-zsh = {
         enable = true;
@@ -80,6 +81,11 @@ let name = "Rohit Jayaram";
         fi
 
         export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+        # nvm
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
         if [ "$PWD" = "/" ]; then
           cd ~
         fi

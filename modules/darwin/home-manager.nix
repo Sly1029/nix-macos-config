@@ -21,8 +21,16 @@ programs.zsh.enable = true;
 
   homebrew = {
     enable = true;
+    taps = [
+      "withgraphite/tap"
+      "semgrep/infra"
+    ];
+    brews = [
+      "graphite"
+      "nvm"
+    ];
     casks = pkgs.callPackage ./casks.nix {};
-    onActivation = { autoUpdate = true; cleanup = "zap"; };
+    onActivation = { autoUpdate = true; cleanup = "none"; };
     global.lockfiles = false;  # sets HOMEBREW_BUNDLE_NO_LOCK to avoid Nix store writes
   };
 
@@ -64,10 +72,13 @@ programs.zsh.enable = true;
       enable = true;
       username = user;
       entries = [
-        { path = "/Users/rohit/Applications/Ghostty.app/"; }
-        { path = "/Users/rohit/Applications/Zen.app/"; }
+        { path = "/Applications/Ghostty.app/"; }
+        { path = "/Applications/Zen.app/"; }
+        { path = "/Applications/Slack.app/"; }
+        { path = "/Applications/Linear.app/"; }
         { path = "/Applications/OrbStack.app/"; }
-        { path = "/Users/rohit/Applications/Raycast.app/"; }
+        { path = "/Applications/Zed.app/"; }
+        { path = "/Applications/Notion.app/"; }
         {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";

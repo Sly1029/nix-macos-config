@@ -16,6 +16,7 @@ with pkgs; [
   git-lfs
   htop
   jq
+  k9s
   kubectl
   kustomize
   nixfmt

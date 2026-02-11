@@ -1,18 +1,36 @@
 _:
 
 [
-  # Your original casks from Nix/configuration.nix
+  # Window management & utilities
   "alt-tab"
   "aerospace"
   "betterdisplay"
-  "ghostty"
-  "graphite-beta"
   "raycast"
-  "steam"
-  "zed"
-  "zen-browser"
 
-  # Fonts from your original config
+  # Terminal & editors
+  "ghostty@tip"
+  "zed"
+
+  # Browsers
+  "google-chrome"
+  "zen"
+
+  # Communication
+  "slack"
+  "telegram"
+
+  # Dev tools
+  "orbstack"
+
+  # VPN
+  "aws-vpn-client-semgrep"
+
+  # Other
+  "linear-linear"
+  "notion"
+  "steam"
+
+  # Fonts
   "font-hack-nerd-font"
   "font-iosevka-nerd-font"
   "font-jetbrains-mono"
