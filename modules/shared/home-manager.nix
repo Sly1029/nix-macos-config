@@ -37,6 +37,7 @@ let name = "Rohit Jayaram";
         px = "pnpx";
         diff = "difft";
 	nixconfig = "z nixos-config && nvim .";
+        c = "claude --dangerously-skip-permissions";
       };
       initContent = ''
         # include .profile if it exists
@@ -68,7 +69,7 @@ let name = "Rohit Jayaram";
           local branches branch
           branches=$(git branch -vv --sort=-committerdate) &&
           branch=$(echo "$branches" | fzf +m) &&
-          git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+          git checkout $(echo "$branch" | sed 's/^[* +]*//' | awk '{print $1}')
         }
 
         # Override lsd aliases to match original config

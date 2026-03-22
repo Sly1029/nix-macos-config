@@ -24,10 +24,12 @@ programs.zsh.enable = true;
     taps = [
       "withgraphite/tap"
       "semgrep/infra"
+      "datadog-labs/pack"
     ];
     brews = [
       "graphite"
       "nvm"
+      "datadog-labs/pack/pup"
     ];
     casks = pkgs.callPackage ./casks.nix {};
     onActivation = { autoUpdate = true; cleanup = "none"; };

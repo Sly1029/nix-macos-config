@@ -34,6 +34,7 @@
         "Bash(gh api:*)"
         "Bash(gh search:*)"
         "Bash(gh search code:*)"
+        "Bash(fd:*)"
         "Bash(kubectl get:*)"
         "Bash(kubectl describe:*)"
         "Bash(kubectl logs:*)"
@@ -134,6 +135,42 @@
       "playwright-skill@playwright-skill" = true;
     };
     alwaysThinkingEnabled = true;
+    hooks = {
+      PreToolUse = [
+        {
+          matcher = "Bash";
+          hooks = [
+            {
+              type = "command";
+              command = "~/.claude/hooks/nudge-fd.sh";
+            }
+          ];
+        }
+      ];
+    };
+  };
+
+  ".claude/hooks/nudge-fd.sh" = {
+    executable = true;
+    text = ''
+      #!/bin/bash
+      input=$(cat)
+      command=$(echo "$input" | jq -r '.tool_input.command // empty')
+      if echo "$command" | grep -qE '(^|[;&|]\s*)find\s'; then
+        NUDGE_FILE="/tmp/.claude-find-nudge"
+        if [ -f "$NUDGE_FILE" ]; then
+          last_nudge=$(cat "$NUDGE_FILE")
+          now=$(date +%s)
+          if [ $((now - last_nudge)) -lt 60 ]; then
+            rm -f "$NUDGE_FILE"
+            exit 0
+          fi
+        fi
+        date +%s > "$NUDGE_FILE"
+        echo "{\"decision\":\"block\",\"reason\":\"Use fd instead of find. fd is faster, respects .gitignore, and has simpler syntax. Example: fd pattern instead of find . -name pattern. If you truly need find, try again.\"}"
+        exit 0
+      fi
+    '';
   };
 
   ".claude/skills/fix-merge-conflicts/SKILL.md".text = ''
