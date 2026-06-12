@@ -3,6 +3,8 @@
 {
   programs.neovim = {
     enable = true;
+    withRuby = false;
+    withPython3 = false;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -49,7 +51,7 @@
     extraPackages = with pkgs; [
       # Language servers
       nil
-      nodePackages.typescript-language-server
+      typescript-language-server
       pyright
       lua-language-server
 

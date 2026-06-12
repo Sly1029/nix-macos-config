@@ -8,8 +8,6 @@ core ++ [
   # Darwin specific
   dockutil
   unnaturalscrollwheels
-  cyberduck
   discord
   spotify
-  ollama
 ]

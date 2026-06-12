@@ -31,13 +31,12 @@ with pkgs; [
   time
   tmux
   tree-sitter
-  uv
   wget
   yarn
   zoxide
 
   # Language servers / dev extras
-  nodePackages.typescript-language-server
+  typescript-language-server
   nil
   pyright
   lua-language-server

@@ -16,14 +16,11 @@ _:
   "zen"
 
   # Communication
-  "slack"
   "telegram"
 
   # Dev tools
   "orbstack"
 
-  # VPN
-  "aws-vpn-client-semgrep"
 
   # Other
   "linear-linear"

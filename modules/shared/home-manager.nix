@@ -16,7 +16,7 @@ let name = "Rohit Jayaram";
       cdpath = [ "~/.local/share/src" ];
       history.size = 10000;
       sessionVariables = {
-        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:/Users/rohit/.volta/bin:/opt/homebrew/opt/ruby/bin:/Users/rohit/.local/share/uv/tools/semgrep/lib/python3.13/site-packages/semgrep/bin/:$PATH";
+        PATH = "$HOME/.local/bin:$HOME/.apps:$HOME/.cargo/bin:$HOME/.orbstack/bin:$HOME/.volta/bin:/opt/homebrew/opt/ruby/bin:$HOME/.local/share/uv/tools/semgrep/lib/python3.13/site-packages/semgrep/bin/:$PATH";
         EDITOR = "nvim";
         CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
       };
@@ -83,10 +83,6 @@ let name = "Rohit Jayaram";
 
         export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-        # nvm
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
         if [ "$PWD" = "/" ]; then
           cd ~
         fi

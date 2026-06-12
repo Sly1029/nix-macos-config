@@ -21,19 +21,15 @@ programs.zsh.enable = true;
 
   homebrew = {
     enable = true;
-    taps = [
-      "withgraphite/tap"
-      "semgrep/infra"
-      "datadog-labs/pack"
-    ];
+    # All taps are flake-pinned via nix-homebrew in flake.nix (reproducible, read-only
+    # symlinks). Bump versions with `nix flake update` rather than `brew update`, which
+    # is unreliable here because it chokes on the read-only /nix/store taps.
     brews = [
       "graphite"
-      "nvm"
       "datadog-labs/pack/pup"
     ];
     casks = pkgs.callPackage ./casks.nix {};
-    onActivation = { autoUpdate = true; cleanup = "none"; };
-    global.lockfiles = false;  # sets HOMEBREW_BUNDLE_NO_LOCK to avoid Nix store writes
+    onActivation = { autoUpdate = true; upgrade = true; cleanup = "none"; };
   };
 
   # Enable home-manager

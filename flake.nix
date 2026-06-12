@@ -31,6 +31,14 @@
       url = "github:nikitabobko/homebrew-tap";
       flake = false;
     };
+    datadog-pack-tap = {
+      url = "github:datadog-labs/homebrew-pack";
+      flake = false;
+    };
+    semgrep-infra-tap = {
+      url = "github:semgrep/homebrew-infra";
+      flake = false;
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,7 +48,7 @@
     #   flake = false;
     # };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, withgraphite-tap, nikitabobko-tap, home-manager, nixpkgs, disko, agenix } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, withgraphite-tap, nikitabobko-tap, datadog-pack-tap, semgrep-infra-tap, home-manager, nixpkgs, disko, agenix } @inputs:
     let
       user = "rohit";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -103,6 +111,8 @@
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "withgraphite/homebrew-tap" = withgraphite-tap;
                   "nikitabobko/homebrew-tap" = nikitabobko-tap;
+                  "datadog-labs/homebrew-pack" = datadog-pack-tap;
+                  "semgrep/homebrew-infra" = semgrep-infra-tap;
                 };
                 mutableTaps = true;
                 autoMigrate = true;

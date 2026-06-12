@@ -173,6 +173,50 @@
     '';
   };
 
+  ".codex/hooks.json".text = builtins.toJSON {
+    hooks = {
+      PreToolUse = [
+        {
+          matcher = "^Bash$";
+          hooks = [
+            {
+              type = "command";
+              command = "/bin/bash /Users/${user}/.codex/hooks/nudge-fd.sh";
+              timeout = 5;
+              statusMessage = "Checking Bash command";
+            }
+          ];
+        }
+      ];
+    };
+  };
+
+  ".codex/hooks/nudge-fd.sh" = {
+    executable = true;
+    text = ''
+      #!/bin/bash
+
+      input=$(cat)
+      command=$(echo "$input" | jq -r '.tool_input.command // empty')
+
+      if echo "$command" | grep -qE '(^|[;&|][[:space:]]*)find([[:space:]]|$)'; then
+        NUDGE_FILE="/tmp/.codex-find-nudge"
+        if [ -f "$NUDGE_FILE" ]; then
+          last_nudge=$(cat "$NUDGE_FILE")
+          now=$(date +%s)
+          if [ $((now - last_nudge)) -lt 60 ]; then
+            rm -f "$NUDGE_FILE"
+            exit 0
+          fi
+        fi
+
+        date +%s > "$NUDGE_FILE"
+        echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"Use fd instead of find. fd is faster, respects .gitignore, and has simpler syntax. Example: fd pattern instead of find . -name pattern. If you truly need find, try again."}}'
+        exit 0
+      fi
+    '';
+  };
+
   ".claude/skills/fix-merge-conflicts/SKILL.md".text = ''
     Fix the merge conflict in this repo. I use graphite to manage branches so when you resolve the conflict. Add the files with `git add`
 
